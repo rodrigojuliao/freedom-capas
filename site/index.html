@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Freedom Capas | Alfaiataria Automotiva Premium</title>
+    <meta name="description"
+        content="A proteção sob medida que o seu veículo de luxo merece. Capas personalizadas, proteção contra microdanos e material 100% respirável.">
+    <meta name="keywords"
+        content="capa automotiva sob medida, capa para carro personalizada, freedom capas, capa premium para carros, paulo rudniki">
+    <meta name="author" content="Freedom Capas">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.freedomcapas.com.br/">
+    <meta property="og:title" content="Freedom Capas | Alfaiataria Automotiva">
+    <meta property="og:description" content="A proteção sob medida que o seu veículo de luxo e a sua paixão merecem.">
+    <meta property="og:image" content="assets/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- GSAP for Animations -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="js/main.js"></script>
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Freedom Capas Personalizadas",
+      "image": "assets/logo.png",
+      "@id": "https://www.freedomcapas.com.br/",
+      "url": "https://www.freedomcapas.com.br/",
+      "telephone": "+5500000000000",
+      "priceRange": "$$$$",
+      "description": "Alfaiataria automotiva focada em capas premium sob medida para veículos de luxo e alta performance."
+    }
+    </script>
+</head>
+
+<body class="dark-theme">
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">FREEDOM CAPAS</a>
+            <div class="nav-links">
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#colecao">A Coleção</a>
+                <a href="#depoimentos">Experiências</a>
+                <a href="#contato" class="btn-nav">Falar com Especialista</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="hero-video-container">
+                <video src="assets/hero-video.mp4" autoplay loop muted playsinline id="hero-video"></video>
+                <div class="overlay-gradient"></div>
+            </div>
+                
+            <div class="hero-content">
+                <span class="badge gsap-fade-up">Alfaiataria Automotiva</span>
+                <h1 class="gsap-fade-up">A proteção sob medida que o seu veículo merece.</h1>
+                <p class="gsap-fade-up hero-desc">Desenhadas com precisão milimétrica. Costuradas com paixão. A
+                    Freedom Capas eleva o padrão de conservação do seu patrimônio.</p>
+                <div class="hero-cta gsap-fade-up">
+                    <a href="#colecao" class="btn btn-primary">Conhecer a Coleção</a>
+                    <a href="#contato" class="btn btn-outline">Consultoria VIP</a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator gsap-fade-up">
+                <span class="mouse">
+                    <span class="wheel"></span>
+                </span>
+                <p>Role para explorar</p>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS SECTION -->
+        <section class="section differentials" id="diferenciais">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <h2 class="section-title">Não é apenas uma capa.<br>É um escudo sob medida.</h2>
+                    <p class="section-subtitle">Diferente de opções genéricas do mercado, nossa arquitetura têxtil
+                        previne os danos invisíveis causados por materiais de baixa qualidade.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="diff-card gsap-fade-up">
+                        <div class="icon">01</div>
+                        <h3>Anti Micro-danos</h3>
+                        <p>Material 100% tecido liso internamente, garantindo que o atrito ao colocar ou retirar jamais
+                            comprometa o polimento técnico e a pintura do seu carro.</p>
+                    </div>
+                    <div class="diff-card gsap-fade-up" style="transition-delay: 0.1s;">
+                        <div class="icon">02</div>
+                        <h3>Respiro Ativo</h3>
+                        <p>Nossa trama avançada bloqueia a poeira enquanto permite que a umidade escape, evitando mofo e
+                            condensação em garagens fechadas.</p>
+                    </div>
+                    <div class="diff-card gsap-fade-up" style="transition-delay: 0.2s;">
+                        <div class="icon">03</div>
+                        <h3>Fit Perfeito (Elastano)</h3>
+                        <p>A união exata entre poliéster e elastano faz com que a capa abrace as curvas do veículo de
+                            forma personalizada, destacando as linhas esportivas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLEÇÃO SECTION -->
+        <section class="section collection" id="colecao">
+            <div class="container">
+                <div class="section-header gsap-fade-up">
+                    <h2 class="section-title">A Coleção Exclusiva</h2>
+                    <p class="section-subtitle">Obras de arte automotiva merecem ser protegidas como tal. Escolha a sua
+                        categoria.</p>
+                </div>
+
+                <div class="catalog-grid">
+                    <!-- Produto 1 -->
+                    <div class="product-card gsap-fade-up">
+                        <div class="product-img-wrapper">
+                            <img src="assets/linha-custom.png" alt="Capas Automotivas Linha Custom" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3>Linha Custom (Hatch & Sedan)</h3>
+                            <p>O ajuste milimétrico para veículos do dia a dia ou de coleção compactos.</p>
+                            <a href="#contato" class="link-arrow">Solicitar Cotação →</a>
+                        </div>
+                    </div>
+
+                    <!-- Produto 2 -->
+                    <div class="product-card gsap-fade-up">
+                        <div class="product-img-wrapper">
+                            <img src="assets/linha-supreme.png" alt="Capas Automotivas Linha Supreme SUV" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h3>Linha Supreme (SUVs & Picapes)</h3>
+                            <p>Proteção estendida e reforçada para as maiores dimensões e blindados.</p>
+                            <a href="#contato" class="link-arrow">Solicitar Cotação →</a>
+                        </div>
+                    </div>
+
+                    <!-- Produto 3 -->
+                    <div class="product-card gsap-fade-up">
+                        <div class="product-img-wrapper">
+                            <img src="assets/linha-realista.png" alt="Capas Automotivas Série Realista Premium" class="product-img">
+                            <span class="tag-exclusive">High-End</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Série Realista Premium</h3>
+                            <p>A arte máxima. Uma capa que replica fielmente o design do seu supercarro.</p>
+                            <a href="#contato" class="link-arrow">Consultar Projeto Especial →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="addon-banner gsap-fade-up">
+                    <div class="addon-content">
+                        <h3>Detalhes que Importam</h3>
+                        <p>Adicione logomarca personalizada termo-transferida para uma apresentação digna de showroom
+                            automotivo.</p>
+                    </div>
+                    <a href="#contato" class="btn btn-outline">Adicionar Logomarca</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROVA SOCIAL -->
+        <section class="section testimonials" id="depoimentos">
+            <div class="container">
+                <div class="section-header text-center gsap-fade-up">
+                    <h2 class="section-title">Avaliados por Apaixonados</h2>
+                </div>
+
+                <div class="grid-2">
+                    <div class="review-card gsap-fade-up">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Sou extremamente chato com a pintura do meu Porsche. A capa da Freedom é
+                            a única que confio para deixar na minha garagem. O acabamento peluciado por dentro é
+                            surreal."</p>
+                        <p class="reviewer">- Cliente Verificado</p>
+                    </div>
+                    <div class="review-card gsap-fade-up" style="transition-delay: 0.1s;">
+                        <div class="stars">★★★★★</div>
+                        <p class="review-text">"Comprei a versão para showroom com o logo da minha empresa. O caimento
+                            do elastano desenha o carro perfeitamente. Entrega rápida e o Paulo foi super atencioso."
+                        </p>
+                        <p class="reviewer">- Colecionador Particular</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="section cta-section" id="contato">
+            <div class="container text-center gsap-fade-up">
+                <h2 class="cta-title">Pronto para elevar a proteção do seu patrimônio?</h2>
+                <p class="cta-desc">Fale diretamente conosco via WhatsApp. Sem intermediários, apenas atendimento
+                    exclusivo para entender a necessidade exata do seu veículo.</p>
+                <a href="https://wa.me/5500000000000" target="_blank" class="btn btn-primary btn-large">Falar com o
+                    Especialista (WhatsApp)</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>FREEDOM CAPAS</h2>
+                <p>Alfaiataria automotiva para apaixonados.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#colecao">Linhas</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <div class="footer-social">
+                <h4>Siga-nos</h4>
+                <a href="#">Instagram @paulorudniki</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Freedom Capas Personalizadas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

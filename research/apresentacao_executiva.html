@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freedom Capas | Apresentação Executiva</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #0A0A0A;
+            --secondary: #E60000;
+            --text-light: #F5F5F5;
+            --text-dim: #A0A0A0;
+            --glass-bg: rgba(20, 20, 20, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Smooth Scroll Snapping Container */
+        .presentation-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Base Slide Styles */
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 4rem;
+        }
+
+        /* Slide 1 - Hero */
+        #slide-hero {
+            background-image: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,1)), url('file:///C:/Users/Paulo%20Sergio/.gemini/antigravity/brain/80e7604a-9947-4880-b295-bb60e1437e61/premium_car_cover_bg_1778173086813.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-client {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            font-weight: 300;
+        }
+
+        /* Glass Cards */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .slide-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .data-point {
+            margin-bottom: 1.5rem;
+        }
+
+        .data-point h4 {
+            color: var(--secondary);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-point p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Competitor Section specific */
+        .competitor-card {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 2px solid #444;
+        }
+        .competitor-card.threat {
+            border-top-color: var(--secondary);
+        }
+
+        /* Visual Style Guide */
+        .color-swatches {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        .swatch-1 { background: #0A0A0A; border: 1px solid #333; }
+        .swatch-2 { background: #E60000; }
+        .swatch-3 { background: #F5F5F5; color: #000; }
+
+        /* Next Button */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+            fill: none;
+            stroke: var(--text-light);
+            stroke-width: 2;
+        }
+
+        /* Animations classes for GSAP */
+        .gsap-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* CTA Button */
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin-top: 2rem;
+        }
+
+        .btn-primary:hover {
+            background: #ff1a1a;
+            box-shadow: 0 0 20px rgba(230, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <!-- SLIDE 1: HERO -->
+        <section class="slide" id="slide-hero">
+            <div class="hero-content">
+                <div class="hero-subtitle gsap-reveal">ESTRATÉGIA DIGITAL & REPOSICIONAMENTO PREMIUM</div>
+                <h1 class="hero-title gsap-reveal">FREEDOM CAPAS<br>PERSONALIZADAS</h1>
+                <div class="hero-client gsap-reveal">Preparado exclusivamente para Paulo Rudniki</div>
+            </div>
+            <div class="scroll-indicator">
+                <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: ANÁLISE COMPETITIVA -->
+        <section class="slide">
+            <div class="glass-panel">
+                <h2 class="slide-title gsap-reveal">Análise do Concorrente: Kings Capas</h2>
+                <div class="grid-2">
+                    <div class="gsap-reveal">
+                        <p style="margin-bottom: 2rem; color: var(--text-dim); line-height: 1.6;">
+                            O líder atual de mercado possui um catálogo extenso de alto valor (produtos de R$395 a R$2.590+), mas apresenta uma fraqueza crucial que podemos explorar.
+                        </p>
+                        <div class="competitor-card">
+                            <h4 style="color: #44cc44; margin-bottom: 0.5rem;">O que eles fazem bem</h4>
+                            <ul style="color: var(--text-dim); margin-left: 1.5rem; line-height: 1.6;">
+                                <li>Segmentação clara por tipo de veículo.</li>
+                                <li>Alta percepção de material (100% tecido).</li>
+                                <li>Prova social com depoimentos de influenciadores e donos de Opala/Porsche.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="gsap-reveal">
+                        <div class="competitor-card threat" style="height: 100%;">
+                            <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">O Furo no Mercado (Nossa Oportunidade)</h4>
+                            <p style="color: var(--text-dim); line-height: 1.6; margin-bottom: 1rem;">
+                                O site deles é um e-commerce genérico (Shopify padrão). Ele mostra <strong>produtos</strong>, mas não vende uma <strong>experiência de luxo</strong>.
+                            </p>
+                            <p style="color: var(--text-dim); line-height: 1.6;">
+                                Quando um cliente paga R$ 2.500 em uma capa de proteção, ele não quer comprar em um layout estilo supermercado. Ele busca a sensação de uma alfaiataria premium.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: O POSICIONAMENTO DA FREEDOM -->
+        <section class="slide">
+            <div class="glass-panel">
+                <h2 class="slide-title gsap-reveal">A Nova Freedom Capas</h2>
+                <div class="grid-2">
+                    <div class="data-point gsap-reveal">
+                        <h4>A Transição Necessária</h4>
+                        <p>De: "Vendedores de Capas no Instagram"<br>Para: <strong>"A Principal Alfaiataria Automotiva do Brasil"</strong></p>
+                    </div>
+                    <div class="data-point gsap-reveal">
+                        <h4>A Mensagem Central</h4>
+                        <p>"A proteção sob medida que o seu veículo de luxo e a sua paixão merecem."</p>
+                    </div>
+                    <div class="data-point gsap-reveal">
+                        <h4>Como Vamos Vencer</h4>
+                        <p>Não vamos construir uma "loja virtual". Vamos construir uma Landing Page Cinematográfica. Usaremos animações baseadas no scroll, vídeos 3D imersivos e design inspirado na Apple e Porsche.</p>
+                    </div>
+                    <div class="data-point gsap-reveal">
+                        <h4>Meta de Conversão</h4>
+                        <p>Filtrar curiosos e captar clientes High-Ticket (Premium/Realistas) direcionando-os para um fechamento VIP via WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: BRIEFING DE DESIGN -->
+        <section class="slide">
+            <div class="glass-panel">
+                <h2 class="slide-title gsap-reveal">Identidade Visual e Tecnologia</h2>
+                <div class="grid-2">
+                    <div class="gsap-reveal">
+                        <h4 style="color: var(--text-light); margin-bottom: 1rem;">Paleta de Cores Premium</h4>
+                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Focada em esportividade e luxo sombrio (Dark Mode nativo).</p>
+                        <div class="color-swatches">
+                            <div class="swatch swatch-1">Preto Ônix</div>
+                            <div class="swatch swatch-2">Vermelho</div>
+                            <div class="swatch swatch-3">Prata</div>
+                        </div>
+                    </div>
+                    <div class="gsap-reveal">
+                        <h4 style="color: var(--text-light); margin-bottom: 1rem;">Tecnologia de Desenvolvimento</h4>
+                        <ul style="color: var(--text-dim); line-height: 1.8; margin-left: 1.2rem;">
+                            <li><strong>Sem Templates:</strong> Código 100% puro e focado em performance ultra-rápida.</li>
+                            <li><strong>GSAP & ScrollTrigger:</strong> Os elementos irão "surgir" enquanto o cliente rola a página, criando um efeito de desfile de showroom.</li>
+                            <li><strong>Mobile-First:</strong> A maioria virá do Instagram; o site será otimizado como um aplicativo nativo no celular.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: APROVAÇÃO -->
+        <section class="slide" style="text-align: center;">
+            <div class="glass-panel" style="max-width: 800px; display: flex; flex-direction: column; align-items: center;">
+                <h2 class="slide-title gsap-reveal" style="border: none; padding: 0;">Próximos Passos</h2>
+                <p class="gsap-reveal" style="color: var(--text-dim); font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">
+                    Com a sua aprovação deste relatório, iniciaremos a <strong>Fase 4 (Construção do Site)</strong>, onde escreverei a estrutura tecnológica premium e prepararei o terreno para o seu conteúdo visual.
+                </p>
+                <button class="btn-primary gsap-reveal" onclick="alert('Excelente! Por favor, retorne ao chat e dê a ordem para iniciar o desenvolvimento técnico.')">APROVAR E INICIAR DESENVOLVIMENTO</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // GSAP Animations setup
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Select all elements that need to be revealed
+        const revealElements = document.querySelectorAll('.gsap-reveal');
+
+        revealElements.forEach((element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    scroller: ".presentation-container",
+                    start: "top 85%", 
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power2.out",
+                stagger: 0.2
+            });
+        });
+    </script>
+</body>
+</html>
